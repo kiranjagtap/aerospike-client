@@ -1,0 +1,15 @@
+name: aerospike-client-java
+
+container:
+  - base:
+      - docker.qe.aerospike.com/build/aerospike-client-java:openjdk-7
+      - docker.qe.aerospike.com/build/aerospike-client-java:openjdk-8
+
+build:
+  - name: build
+    script:
+      - mvn clean
+      - mvn install
+      - mvn -f client/pom.xml javadoc:javadoc javadoc:jar
+    artifact:
+      - client/target/*.jar

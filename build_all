@@ -1,0 +1,7 @@
+# Build Java projects with Maven.
+# Maven and Java must be installed prior to running this script.
+
+mvn clean
+mvn install
+rm -rf client/doc
+mvn -f client/pom.xml javadoc:javadoc
